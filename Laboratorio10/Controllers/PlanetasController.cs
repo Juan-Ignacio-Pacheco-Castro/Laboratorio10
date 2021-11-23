@@ -1,9 +1,9 @@
-﻿using Laboratorio4.Models;
-using Laboratorio4.Handlers;
+﻿using Laboratorio10.Models;
+using Laboratorio10.Handlers;
 using System.Web.Mvc;
 using System;
 
-namespace Laboratorio4.Controllers
+namespace Laboratorio10.Controllers
 {
     public class PlanetasController : Controller
     {

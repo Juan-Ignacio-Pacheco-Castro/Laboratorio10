@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace Laboratorio4.Models
+namespace Laboratorio10.Models
 {
     public class PlanetaModel
     {

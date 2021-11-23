@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using System.Web;
-using Laboratorio4.Models;
+using Laboratorio10.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Laboratorio4.Handlers
+namespace Laboratorio10.Handlers
 {
     public class PlanetasHandler
     {
