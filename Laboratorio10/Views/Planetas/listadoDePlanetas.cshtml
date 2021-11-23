@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Planetas";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planetas</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Listado de planetas</h1>
+
+
+
+
+    @foreach (var planeta in @ViewBag.planetas)
+    {
+        <hr />
+        <h2>Ficha de planeta: @planeta.id</h2>
+        <p>Nombre: @planeta.nombre</p>
+        <p>Tipo: @planeta.tipo</p>
+        <p>Numero de anillos: @planeta.numeroAnillos</p>
+
+        @Html.ActionLink("Modificar información", "editarPlaneta",
+                      new { identificador = planeta.id },
+                      new
+                      {
+                          @class = "btn btn alert-info",
+                          @onclick = "return confirm('¿Quiere modificar este planeta?');"
+                      }
+        );
+        @Html.ActionLink("Ver Contenido Digital", "accederArchivo",
+                      new { identificador = planeta.id },
+                      new
+                      {
+                          @class = "btn btn-success",
+                      }
+        );
+        <hr />
+    }
+</body>
+</html>
+
