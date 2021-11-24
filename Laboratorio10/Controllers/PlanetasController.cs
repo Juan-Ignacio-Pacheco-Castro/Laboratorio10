@@ -89,7 +89,8 @@ namespace Laboratorio10.Controllers
             {
                 PlanetasHandler accesoDatos = new PlanetasHandler();
                 var tupla = accesoDatos.descargarContenido(identificador);
-                return File(tupla.Item1, tupla.Item2);
+                FileResult file = File(tupla.Item1, tupla.Item2);
+                return file;
             }
             catch
             {
