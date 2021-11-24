@@ -16,5 +16,43 @@ namespace UnitTestLab10.Tests.Controllers {
             //Assert 
             Assert.IsNotNull(vista);
         }
+
+        [TestMethod]
+        public void TestCrearPlanetaViewResult() {
+            //Arrange
+            PlanetasController planetasController = new PlanetasController();
+
+            //Act
+            ViewResult vista = planetasController.crearPlaneta() as ViewResult;
+
+            //Assert
+            Assert.AreEqual("crearPlaneta", vista.ViewName);
+        }
+
+        [TestMethod]
+        public void EditarPlanetaIdValidoVistaNoNula() {
+            //Arrange
+            int id = 1;
+            PlanetasController planetasController = new PlanetasController();
+
+            //Act
+            ViewResult vista = planetasController.editarPlaneta(id) as ViewResult;
+
+            //Assert
+            Assert.IsNotNull(vista);
+        }
+
+        [TestMethod]
+        public void EditarPlanetaValidoModeloRetornadoNoEsNulo() {
+            //Arrange
+            int id = 1;
+            PlanetasController planetasController = new PlanetasController();
+
+            //Act
+            ViewResult vista = planetasController.editarPlaneta(id) as ViewResult;
+
+            //Assert
+            Assert.IsNotNull(vista.Model);
+        }
     }
 }

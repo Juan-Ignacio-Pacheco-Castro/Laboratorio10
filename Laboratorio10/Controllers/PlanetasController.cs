@@ -16,7 +16,7 @@ namespace Laboratorio10.Controllers
 
         public ActionResult crearPlaneta()
         {
-            return View();
+            return View("crearPlaneta");
         }
         [HttpPost]
         public ActionResult crearPlaneta(PlanetaModel planeta)

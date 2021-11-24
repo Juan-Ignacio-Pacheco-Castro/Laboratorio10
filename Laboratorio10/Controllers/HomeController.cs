@@ -18,8 +18,8 @@ namespace Laboratorio10.Controllers {
 
         public ActionResult Contact() {
             ViewBag.Message = "Your contact page.";
-
-            return View();
+            ViewBag.ValorParaTest = 1;
+            return View("Contact");
         }
     }
 }
