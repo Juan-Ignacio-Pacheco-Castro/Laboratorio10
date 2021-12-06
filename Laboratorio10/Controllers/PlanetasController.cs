@@ -7,9 +7,20 @@ namespace Laboratorio10.Controllers
 {
     public class PlanetasController : Controller
     {
+        public PlanetasHandler accesoDatos { get; set; }
+
+        public PlanetasController() {
+            accesoDatos = new PlanetasHandler();
+        }
+
+        public PlanetasController(PlanetasHandler planetaHandler) {
+            accesoDatos = planetaHandler;
+        }
+
+
         public ActionResult listadoDePlanetas()
         {
-            PlanetasHandler accesoDatos = new PlanetasHandler();
+            
             ViewBag.planetas = accesoDatos.obtenerTodosLosPlanetas();
             return View();
         }
@@ -18,6 +29,7 @@ namespace Laboratorio10.Controllers
         {
             return View("crearPlaneta");
         }
+
         [HttpPost]
         public ActionResult crearPlaneta(PlanetaModel planeta)
         {
@@ -26,7 +38,6 @@ namespace Laboratorio10.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    PlanetasHandler accesoDatos = new PlanetasHandler();
                     ViewBag.ExitoAlCrear = accesoDatos.crearPlaneta(planeta);
                     if (ViewBag.ExitoAlCrear)
                     {
@@ -49,7 +60,6 @@ namespace Laboratorio10.Controllers
             ActionResult vista;
             try
             {
-                PlanetasHandler accesoDatos = new PlanetasHandler();
                 PlanetaModel planetaModificar = accesoDatos.obtenerTodosLosPlanetas().Find(smodel => smodel.id == identificador);
                 if (planetaModificar == null)
                 {
@@ -72,7 +82,6 @@ namespace Laboratorio10.Controllers
         {
             try
             {
-                PlanetasHandler accesoDatos = new PlanetasHandler();
                 accesoDatos.modificarPlaneta(planeta);
                 return RedirectToAction("listadoDePlanetas");
             }
@@ -87,7 +96,6 @@ namespace Laboratorio10.Controllers
         {
             try
             {
-                PlanetasHandler accesoDatos = new PlanetasHandler();
                 var tupla = accesoDatos.descargarContenido(identificador);
                 FileResult file = File(tupla.Item1, tupla.Item2);
                 return file;

@@ -61,7 +61,7 @@ namespace Laboratorio10.Handlers
             return bytes;
         }
 
-        public bool crearPlaneta(PlanetaModel planeta)
+        virtual public bool crearPlaneta(PlanetaModel planeta)
         {
             string consulta = "INSERT INTO Planeta (archivoPlaneta, tipoArchivo, nombrePlaneta, numeroAnillos, tipoPlaneta) " +
                               "VALUES (@archivo, @tipoArchivo, @nombre, @numeroAnillos, @tipoPlaneta) ";
